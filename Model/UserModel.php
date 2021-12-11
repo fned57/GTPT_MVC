@@ -26,8 +26,9 @@ class UserModel extends BaseModel{
     }
     public function create($username,$pass,$emali,$name)
     {
-        $sql = "INSERT INTO USER(Username,Password,Email,Name) VALUES ('$username','$pass','$emali','$name')";
+        $sql = "INSERT INTO `user`( `Name`, `Username`, `Email`, `Password`,`Role`) VALUES ('$name','$username','$emali','$pass','user')";
         $result = $this->_Create($sql);
+        
         return $result;
     }
     public function findById($id)

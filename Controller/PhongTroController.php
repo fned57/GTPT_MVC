@@ -10,6 +10,7 @@ class PhongTroController extends BaseController{
     public function index($id){
         
         $listPhongtro = null;
+      
         if(count($id) <3){
             $listPhongtro = $this->Model->GetAll(); 
         }

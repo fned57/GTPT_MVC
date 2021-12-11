@@ -1,20 +1,11 @@
 <?php
 
 class PhongTroModel extends BaseModel{
-    private $Id;
-    private $Name;
-    private $UserName;
-    private $Email;
-    private $Password;
-    private $Role;
-    private $Phone;
-    private $Avata;
-
-
+ 
 
     public function GetAll()
     {
-        return $this->all("user");
+        return $this->all("motel");
     }
 
     public function FindByUserName($UserName){
@@ -32,7 +23,7 @@ class PhongTroModel extends BaseModel{
     }
     public function findById($id)
     {
-        $sql = "SELECT * FROM USER WHERE id = '$id'";
+        $sql = "SELECT * FROM motel WHERE Id = '$id'";
 
         $result = $this->_Query($sql);
         return $result;

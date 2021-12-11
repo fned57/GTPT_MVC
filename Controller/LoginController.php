@@ -20,7 +20,7 @@ class LoginController extends BaseController{
             </head>
             <body>
                 <h1>Dang Nhap</h1>
-                <h2>'.$error['error'].'</h2>
+               
                 <form action="/login" method="post" class="row g-3">
                         <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Email address</label>

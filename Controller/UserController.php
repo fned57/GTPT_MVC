@@ -9,11 +9,11 @@ class UserController extends BaseController{
     } 
     public function index($id){
         $listuser = null;
-        if(count($id) <3){
+        if(count($id) <2){
             $listuser = $this->Model->GetAll(); 
         }
         else{  
-            $listuser = $this->Model->findById($id[2]);
+            $listuser = $this->Model->findById($id[1]);
         }
         return $this->view('Admin.User.index',[
             'listuser' => $listuser,
@@ -21,8 +21,12 @@ class UserController extends BaseController{
         ]);
         
     }
+
+    public function updateavata(){
+        
+    }
     public function create(){
-    
+        
         if(isset($_POST["sumit"])){
            
             $TxtUserName = $_POST["TxtUserName"];
@@ -38,7 +42,7 @@ class UserController extends BaseController{
                 $result = $this->Model->create($TxtUserName,$TxtPass,$TxtEmail,$TxtName);
                 echo $result;
             }
-            $this->back(["error" => "loi"]);
+            
 
            
         }

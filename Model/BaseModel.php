@@ -6,6 +6,10 @@ class BaseModel extends Database{
     {
        
         $this->conn = $this->conncet();
+        if($this->conn == null){
+            echo "Connect database fail!!";
+            die;
+        }
 
     }
     public function createdb($sql)
@@ -46,7 +50,6 @@ class BaseModel extends Database{
     }
     public function _Create($sql){
 
-      
         if ($this->conn->query($sql) === TRUE) {
             return "Thêm Thành công";
           } else {

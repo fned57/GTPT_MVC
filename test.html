@@ -158,14 +158,27 @@
 <script>
 
     function boloc(){
-       $.get('gtpt/admin/user',  // url
-      function (data, textStatus, jqXHR) {  // success callback
-        
-        console.log(data);
-        console.log(textStatus);
-        console.log(jqXHR);
-        //   alert('status: ' + textStatus + ', data:' + data);
+        $.ajax({
+            // headers: {
+            //             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            //         },
+            type: 'GET',
+            url: 'http://localhost/gtpt/',
+           
+            dataType: 'json',
+            success: function(data) {
+                console.log(data);
+            }
         });
+        
+    //    $.get('http://localhost/gtpt',  // url
+    //   function (data, textStatus, jqXHR) {  // success callback
+        
+    //     console.log(data);
+    //     console.log(textStatus);
+    //     console.log(jqXHR);
+    //     //   alert('status: ' + textStatus + ', data:' + data);
+    //     });
     }
 
  

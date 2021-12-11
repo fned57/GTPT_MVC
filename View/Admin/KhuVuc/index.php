@@ -10,7 +10,7 @@
 </head>
 <body>
 
-<h1 style="text-align:center;">danh Sach USer</h1>
+<h1 style="text-align:center;">danh Sach khu Vuc</h1>
 
 
 <!-- Button trigger modal -->
@@ -69,7 +69,7 @@
 
 
        <!-- form -->
-                <form action="/khuvuc" method="post" class="row g-3" >
+                <form action="" method="post" class="row g-3" >
 
             <div class="mb-6">
             <label for="formGroupExampleInput" class="form-label">Tên Khu Vực</label>

@@ -44,12 +44,12 @@ echo $error;
                   while($row = $listuser->fetch_assoc()) {
                       echo ' 
                       <tr>
-                          <th scope="row">'.$row['id'].'</th>
+                          <th scope="row">'.$row['Id'].'</th>
                           <td>'.$row['Name'].'</td>
-                          <td>'.$row['UserName'].'</td>
+                          <td>'.$row['Username'].'</td>
                           <td>'.$row['Phone'].'</td>
                           <td>'.$row['Email'].'</td>
-                          <td><img src='.$row["avatar"].'" alt="Girl in a jacket" width="200" height="200"></td>
+                          <td><img src='.$row["Avatar"].'" alt="Girl in a jacket" width="200" height="200"></td>
                           <td>
                             <button type="button" class="btn btn-primary">Sửa</button>
                             <button type="button" class="btn btn-primary">Xóa</button>
@@ -77,7 +77,7 @@ echo $error;
 
 
        <!-- form -->
-                <form action="/user" method="post" class="row g-3" name="fromdangki" onsubmit="return checkform(document.fromdangki)">
+                <form action="" method="post" class="row g-3" name="fromdangki" onsubmit="return checkform(document.fromdangki)">
 
             <div class="mb-6">
             <label for="formGroupExampleInput" class="form-label">Tài khoản</label>
@@ -131,5 +131,6 @@ echo $error;
   </div>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 </body>
 </html>
