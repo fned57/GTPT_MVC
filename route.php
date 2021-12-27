@@ -23,6 +23,7 @@ $Route = new Router();
 // $Route->get("/phongtro","PhongTroController","user" );
 
 $Route->get("/login","LoginController","Getlogin" );
+$Route->get("/logout","LoginController","logout" );
 // $Route->post("/login","LoginController","Postlogin" );
 
 #user

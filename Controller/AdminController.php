@@ -8,14 +8,13 @@ class AdminController extends BaseController{
         // $this->loadModel('KhuVucModel');
         // $this->KhuVucModel = new KhuVucModel();
         $user = $_SESSION["user"];
-    
+  
         if($user != null){
             if($user["Role"] != 'admin'){
-                echo "<script type='text/javascript'>alert('Vui lòng đăng nhập tài khoản admin');</script>";
+                
                 header('Location: login');
             }
         }else{
-            echo "<script type='text/javascript'>alert('Vui lòng đăng nhập tài khoản admin');</script>";;
             header('Location: login');
         }
     } 
