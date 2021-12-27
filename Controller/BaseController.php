@@ -9,8 +9,18 @@ class BaseController{
             $$key = $value;
         }
         $path = self::VIEW_FOLDER_NAME .'/' .str_replace('.','/',$path).'.php';
-         
+         echo $path;
         return require $path;
+    }
+
+    public function views($path,$data = [])
+    {
+        foreach($data as $key => $value){
+            $$key = $value;
+        }
+        // $path = self::VIEW_FOLDER_NAME .'/' .str_replace('.','/',$path).'.php';
+         
+        return require "View/admin/index.php";
     }
     protected function loadModel($path)
     {
@@ -23,8 +33,6 @@ class BaseController{
         foreach($data as $key => $value){
             $$key = $value;
         }
-        echo $_SERVER["REQUEST_URI"];
-        die;
         header('Location: '.$_SERVER["REQUEST_URI"].'');
         
     }

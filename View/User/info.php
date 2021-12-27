@@ -11,7 +11,7 @@
 <div class="container-lg overflow-hidden">
     <h1>Thông tin phòng trọ</h1>
   <div class="row gy-5">
-      <button id="Boloc">Bo Loc</button>
+     
     <?php
     if($phongtro->num_rows > 0){
     
@@ -75,9 +75,7 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="   crossorigin="anonymous"> </script>
 <script>
- $('#Boloc').click(()=>{
-    alert("sad");
- });
+
 // $.get('/data.txt',  // url
 //       function (data, textStatus, jqXHR) {  // success callback
 //           alert('status: ' + textStatus + ', data:' + data);

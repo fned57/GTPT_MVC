@@ -12,7 +12,7 @@ class KhuVucModel extends BaseModel{
         return $this->all("districts");
     }
 
-    public function FindByUserName($UserName){
+    public function FindByName($UserName){
 
         $sql = "SELECT * FROM districts WHERE Name = '$UserName'";
 

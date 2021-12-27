@@ -8,6 +8,48 @@ class PhongTroModel extends BaseModel{
         return $this->all("motel");
     }
 
+    public function GetByKhuVuc($id)
+    {
+        $sql = "SELECT * FROM motel WHERE district_id = $id";
+       
+        return $this->_Query($sql);
+    }
+    public function GetByKhuVucAndGiaPhong($khuvuc,$giaphong)
+    {
+        $sql = "SELECT * FROM motel WHERE district_id = $$khuvuc";
+       
+        return $this->_Query($sql);
+    }
+
+    public function GetByTienIchAndGiaPhong($tienich,$giaphong)
+    {
+        // $sql = "SELECT * FROM motel WHERE district_id = $$khuvuc";
+       
+        // return $this->_Query($sql);
+        return $this->all("motel");
+    }
+    public function GetByGiaPhong($giaphong)
+    {
+        // $sql = "SELECT * FROM motel WHERE district_id = $$khuvuc";
+       
+        // return $this->_Query($sql);
+        return $this->all("motel");
+    }
+    public function GetByGiaPhongAndTienIch($giaphong,$tienich)
+    {
+        // $sql = "SELECT * FROM motel WHERE district_id = $$khuvuc";
+       
+        // return $this->_Query($sql);
+        return $this->all("motel");
+    }
+    public function GetByTienIch($tienich)
+    {
+        // $sql = "SELECT * FROM motel WHERE district_id = $$khuvuc";
+       
+        // return $this->_Query($sql);
+        return $this->all("motel");
+    }
+
     public function FindByUserName($UserName){
 
         $sql = "SELECT * FROM USER WHERE Username = '$UserName'";

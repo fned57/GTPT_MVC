@@ -1,24 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-
-</head>
-<body>
-
-<h1 style="text-align:center;">danh Sach USer</h1>
-
+<h1>User</h1>
 
 <!-- Button trigger modal -->
 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
   Thêm USER
 </button>
 <?php
-echo $error;
+if($errer != null){
+    echo "<script type='text/javascript'>alert('$errer');</script>";;
+}
     if($listuser != null){
       if ($listuser->num_rows > 0){
 
@@ -44,12 +33,12 @@ echo $error;
                   while($row = $listuser->fetch_assoc()) {
                       echo ' 
                       <tr>
-                          <th scope="row">'.$row['id'].'</th>
+                          <th scope="row">'.$row['Id'].'</th>
                           <td>'.$row['Name'].'</td>
-                          <td>'.$row['UserName'].'</td>
+                          <td>'.$row['Username'].'</td>
                           <td>'.$row['Phone'].'</td>
                           <td>'.$row['Email'].'</td>
-                          <td><img src='.$row["avatar"].'" alt="Girl in a jacket" width="200" height="200"></td>
+                          <td><img src='.$row["Avatar"].'" alt="Girl in a jacket" width="200" height="200"></td>
                           <td>
                             <button type="button" class="btn btn-primary">Sửa</button>
                             <button type="button" class="btn btn-primary">Xóa</button>
@@ -65,8 +54,11 @@ echo $error;
     }
  ?>
 
+
+
+
  <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+ <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -77,7 +69,7 @@ echo $error;
 
 
        <!-- form -->
-                <form action="/user" method="post" class="row g-3" name="fromdangki" onsubmit="return checkform(document.fromdangki)">
+                <form action="" method="post" class="row g-3" name="fromdangki" onsubmit="return checkform(document.fromdangki)">
 
             <div class="mb-6">
             <label for="formGroupExampleInput" class="form-label">Tài khoản</label>
@@ -130,6 +122,3 @@ echo $error;
     </div>
   </div>
 </div>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-</body>
-</html>

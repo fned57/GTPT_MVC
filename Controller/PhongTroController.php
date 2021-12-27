@@ -6,21 +6,31 @@ class PhongTroController extends BaseController{
     {
         $this->loadModel('PhongTroModel');
         $this->Model = new PhongTroModel();
+        print_r($_SESSION["user"]);
+        $user = $_SESSION["user"];
+        if($user->num_rows>0){
+            echo "damg damg mjap";
+        }else{
+            echo "chua dang nhap";
+            die;
+
+        }
     } 
     public function index($id){
         
-        $listPhongtro = null;
+        // echo "ada";
+        // $listPhongtro = null;
       
-        if(count($id) <3){
-            $listPhongtro = $this->Model->GetAll(); 
-        }
-        else{  
-            $listPhongtro = $this->Model->findById($id[2]);
-        }
-        return $this->view('Admin.User.index',[
-            'listuser' => $listPhongtro,
-            'error' => null
-        ]);
+        // if(count($id) <3){
+        //     $listPhongtro = $this->Model->GetAll(); 
+        // }
+        // else{  
+        //     $listPhongtro = $this->Model->findById($id[2]);
+        // }
+        // return $this->view('Admin.User.index',[
+        //     'listuser' => $listPhongtro,
+        //     'error' => null
+        // ]);
         
     }
     public function create(){
