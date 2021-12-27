@@ -33,9 +33,10 @@ class UserModel extends BaseModel{
     }
     public function findById($id)
     {
-        $sql = "SELECT * FROM USER WHERE id = '$id'";
-
+        $sql = "SELECT * FROM USER WHERE Id = $id";
+       
         $result = $this->_Query($sql);
+      
         return $result;
     }
     public function FindByUserNameAndPass($name,$pass){
@@ -44,12 +45,11 @@ class UserModel extends BaseModel{
         $result = $this->_Query($sql);
         return $result;
     }
-    // public function create()
-    // {
-    //     $sql =  "CREATE TABLE IF NOT EXISTS User(id int, Naame varchar(255), 
-    //     UserName varchar(255), Email varchar(255), Paassword char(100), Rolee int, Phone char(10), avatar varchar(255))";
-    //     return $this->createdb($sql);
-    // }
+    public function delete($id)
+    {
+        $sql =  "DELETE FROM USER WHERE id = $id";
+        return $this->_delete($sql);
+    }
 }
 
 ?>

@@ -93,21 +93,7 @@ class HomeController extends BaseController{
             echo "asdada";
         }
     }
-    public function boloc($id)
-    { 
-        // header("Content-Type: application/json; charset=UTF-8");
-        // $this->loadModel('KhuVucModel');
-        // $KhuVucModel = new KhuVucModel();
-        // $listkhuvuc = $KhuVucModel->GetAll();
-        // if($listkhuvuc->num_rows >0){
-        //     while($row = $listkhuvuc->fetch_assoc()){
-        //         echo ($row["Name"]);
-        //     }
-        // }
-
-        $this->sendResponse(100,'{“items”:'.json_encode("asdsa").'}');
-
-    }
+   
 }
 
 ?>

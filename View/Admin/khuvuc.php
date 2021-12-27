@@ -11,7 +11,9 @@
 if($error != null){
     echo "<script type='text/javascript'>alert('$error');</script>";;
 }
-
+if($mess != null){
+  echo "<script type='text/javascript'>alert('$mess');</script>";;
+}
     if($ListKhuVuc != null){
       if ($ListKhuVuc->num_rows > 0){
 
@@ -36,8 +38,7 @@ if($error != null){
                           <th scope="row">'.$row['Id'].'</th>
                           <td>'.$row['Name'].'</td>
                           <td>
-                            <button type="button" class="btn btn-primary">Sửa</button>
-                            <button type="button" class="btn btn-primary">Xóa</button>
+                          <a  class="btn btn-danger" href="?khuvuc&&id='.$row['Id'].'&&event=xoa">Xóa</a>
                           </td>
                           </tr>';
                   }

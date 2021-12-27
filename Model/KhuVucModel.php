@@ -19,18 +19,23 @@ class KhuVucModel extends BaseModel{
         $result = $this->_Query($sql);
         return $result;
     }
+    public function findById($id){
+
+        $sql = "SELECT * FROM districts WHERE Id = '$id'";
+
+        $result = $this->_Query($sql);
+        return $result;
+    }
     public function create($name)
     {
         $sql = "INSERT INTO districts(Name) VALUES ('$name')";
         $result = $this->_Create($sql);
         return $result;
     }
-    public function findById($id)
+    public function delete($id)
     {
-        // $sql = "SELECT * FROM USER WHERE id = '$id'";
-
-        // $result = $this->_Query($sql);
-        // return $result;
+        $sql =  "DELETE FROM districts WHERE id = $id";
+        return $this->_delete($sql);
     }
     // public function create()
     // {

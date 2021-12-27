@@ -4,26 +4,28 @@
 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
   Thêm USER
 </button>
+
+</br>
 <?php
 if($errer != null){
     echo "<script type='text/javascript'>alert('$errer');</script>";;
 }
+if($mess != null){
+  echo "<script type='text/javascript'>alert('$mess');</script>";;
+}
     if($listuser != null){
       if ($listuser->num_rows > 0){
-
-          echo '<table class="table">
-          <thead>
-              <tr>
-              <th scope="col">ID</th>
-              <th scope="col">Name</th>
-              <th scope="col">UserName</th>
-              <th scope="col">Phone</th>
-              <th scope="col">Email</th>
-              <th scope="col">Avatar</th>
-              <th scope="col"></th>
-              </tr>
-          </thead>
-          <tbody>';
+       
+          echo '<table class="table table-success table-striped">
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">UserName</th>
+            <th scope="col">Phone</th>
+            <th scope="col">Email</th>
+            <th scope="col">Avatar</th>
+            <th scope="col">Event</th>
+          </tr>';
       
 
 
@@ -34,20 +36,18 @@ if($errer != null){
                       echo ' 
                       <tr>
                           <th scope="row">'.$row['Id'].'</th>
-                          <td>'.$row['Name'].'</td>
+                          <td> <p>'.$row['Name'].'</p></td>
                           <td>'.$row['Username'].'</td>
                           <td>'.$row['Phone'].'</td>
                           <td>'.$row['Email'].'</td>
                           <td><img src='.$row["Avatar"].'" alt="Girl in a jacket" width="200" height="200"></td>
                           <td>
-                            <button type="button" class="btn btn-primary">Sửa</button>
-                            <button type="button" class="btn btn-primary">Xóa</button>
+                            <a  class="btn btn-danger" href="?user&&id='.$row['Id'].'&&event=xoa">Xóa</a>
                           </td>
                           </tr>';
                   }
             
-          echo '</tbody>
-          </table>';       
+          echo ' </table>';       
       }
     }else{
       echo '<h1 style="text-align:center;">danh Sach trong</h1>';

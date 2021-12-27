@@ -32,7 +32,7 @@ class LoginController extends BaseController{
                     if($user["Role"] === 'admin'){
                         header('Location: admin');
                     }else{
-                        header('Location: gtpt');
+                        header('Location: home');
                     }
                     
                 }else{

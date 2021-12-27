@@ -3,10 +3,7 @@ class AdminController extends BaseController{
     
     public function __construct()
     {
-        // $this->loadModel('PhongTroModel');
-        // $this->PhongtroModel = new PhongTroModel();
-        // $this->loadModel('KhuVucModel');
-        // $this->KhuVucModel = new KhuVucModel();
+       
         $user = $_SESSION["user"];
   
         if($user != null){
@@ -20,14 +17,33 @@ class AdminController extends BaseController{
     } 
     public function index($id)
     {
-        
+
         if($_SERVER["QUERY_STRING"]!==""){
             $pramar = $_SERVER["QUERY_STRING"];
-            if($pramar === 'user'){
+            $pramar = explode("&&" ,  $pramar);
+            if($pramar[0] === 'user'){
+                if(isset($pramar[1])){
+                    
+                    if(isset($pramar[2])){
+                        
+
+                        $this->user($pramar[1],$pramar[2]);
+                    }else
+                        $this->user($pramar[1]);
+                }else
                 $this->user();
-            }else if ($pramar === 'phongtro'){
+            }else if ($pramar[0] === 'phongtro'){
                 $this->phongtro();
-            }else if ($pramar === 'khuvuc'){
+            }else if ($pramar[0] === 'khuvuc'){
+                if(isset($pramar[1])){
+                    
+                    if(isset($pramar[2])){
+                        
+
+                        $this->khuvuc($pramar[1],$pramar[2]);
+                    }else
+                        $this->khuvuc($pramar[1]);
+                }else
                 $this->khuvuc();
             }else{
                 $this->information();
@@ -37,13 +53,14 @@ class AdminController extends BaseController{
         }  
     }
 
-    public function user(){
+    public function user($id = null, $event = null){
         $this->loadModel('UserModel');
-
+       
         
         $this->Model = new UserModel();
         $error = null;
-        
+        $mess = null;
+      
         if($_SERVER['REQUEST_METHOD'] === 'POST'){
             if(isset($_POST["sumit"])){
            
@@ -63,10 +80,32 @@ class AdminController extends BaseController{
             }
     
         }
-     
-        $listuser = $this->Model->GetAll(); 
+        if($id != null){
+            $id = substr($id,3);
+            if($event != null){
+                $event = substr($event,6);
+                echo $event;
+                
+                if($event === 'xoa'){
+                    $result = $this->Model->delete($id);
+                   
+                    if($result){
+                        $mess = "Xóa thành công";
+                        $listuser = $this->Model->GetAll(); 
+                    }else{
+                        $mess = "Xóa thất bại";
+                        $listuser = $this->Model->GetAll(); 
+                    }
+                }
+            }else{
+                $listuser = $this->Model->findById($id);   
+            }
+        }else
+            $listuser = $this->Model->GetAll(); 
         return $this->views("User",  ['listuser' => $listuser,
-        'errer' => $error]
+        'errer' => $error,
+        'mess' => $mess
+        ]
     );
       
     
@@ -76,12 +115,13 @@ class AdminController extends BaseController{
     {
         return $this->views("Phongtro");
     }
-    public function khuvuc()
+    public function khuvuc($id = null, $event = null)
     {
 
         $this->loadModel('KhuVucModel');
         $this->Model = new KhuVucModel();
         $error = null;
+        $mess = null;
         if($_SERVER['REQUEST_METHOD'] === 'POST'){
             if(isset($_POST["sumit"])){
            
@@ -99,11 +139,33 @@ class AdminController extends BaseController{
     
         }
 
-        $listKhuVuc = $this->Model->GetAll();
+        if($id != null){
+            $id = substr($id,3);
+            if($event != null){
+                $event = substr($event,6);
+               
+                
+                if($event === 'xoa'){
+                    $result = $this->Model->delete($id);
+                    echo $result;
+                    if($result){
+                        $mess = "Xóa thành công";
+                        $listKhuVuc = $this->Model->GetAll(); 
+                    }else{
+                        $mess = "Xóa thất bại";
+                        $listKhuVuc = $this->Model->GetAll(); 
+                    }
+                }
+            }else{
+                $listKhuVuc = $this->Model->findById($id);   
+            }
+        }else
+            $listKhuVuc = $this->Model->GetAll(); 
+
         return $this->views("khuvuc",["ListKhuVuc" => $listKhuVuc,
-                                        'error' => $error
-    ]);
-        // return $this->views("khuvuc");
+                                        'error' => $error,
+                                        'mess' => $mess
+                            ]);
     }
 
     public function information()

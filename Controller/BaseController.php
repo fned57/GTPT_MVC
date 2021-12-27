@@ -9,7 +9,6 @@ class BaseController{
             $$key = $value;
         }
         $path = self::VIEW_FOLDER_NAME .'/' .str_replace('.','/',$path).'.php';
-         echo $path;
         return require $path;
     }
 
