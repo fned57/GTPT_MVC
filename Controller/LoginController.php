@@ -29,11 +29,8 @@ class LoginController extends BaseController{
                             break;
                       }
                     $_SESSION["user"] = $user;    
-                    if($user["Role"] === 'admin'){
-                        header('Location: admin');
-                    }else{
-                        header('Location: home');
-                    }
+                    header('Location: home');
+                    
                     
                 }else{
                     $error = "Đăng nhâp không thành công";
@@ -45,6 +42,7 @@ class LoginController extends BaseController{
     }
     public function logout(){
         $_SESSION["user"] = null;
+        header('Location: home');
     }
     
 }

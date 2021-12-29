@@ -54,6 +54,7 @@ class AdminController extends BaseController{
     }
 
     public function user($id = null, $event = null){
+    
         $this->loadModel('UserModel');
        
         

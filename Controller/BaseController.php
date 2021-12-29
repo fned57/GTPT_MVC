@@ -20,7 +20,7 @@ class BaseController{
         }
         // $path = self::VIEW_FOLDER_NAME .'/' .str_replace('.','/',$path).'.php';
          
-        return require "View/bootstrap/sidebars/index.php";
+        return require "View/Admin/index.php";
     }
     protected function loadModel($path)
     {
