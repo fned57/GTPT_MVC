@@ -2,6 +2,7 @@
 
 class BaseController{
     const VIEW_FOLDER_NAME = 'View';
+    // const VIEW_FOLDER_NAME = 'View';
     const MODEL_FORDEL_NAME = 'Model';
     public function view($path,$data = [])
     {
@@ -11,7 +12,7 @@ class BaseController{
         $path = self::VIEW_FOLDER_NAME .'/' .str_replace('.','/',$path).'.php';
         return require $path;
     }
-
+   
     public function views($path,$data = [])
     {
         foreach($data as $key => $value){
@@ -19,7 +20,7 @@ class BaseController{
         }
         // $path = self::VIEW_FOLDER_NAME .'/' .str_replace('.','/',$path).'.php';
          
-        return require "View/admin/index.php";
+        return require "View/bootstrap/sidebars/index.php";
     }
     protected function loadModel($path)
     {

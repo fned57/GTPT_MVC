@@ -41,7 +41,7 @@ class LoginController extends BaseController{
            
             }
         }
-        $this->views("login", [ 'error' => $error]);
+        $this->view("login", [ 'error' => $error]);
     }
     public function logout(){
         $_SESSION["user"] = null;

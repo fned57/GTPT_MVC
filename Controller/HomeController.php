@@ -76,10 +76,14 @@ class HomeController extends BaseController{
         }
         $khuvuc = $this->KhuVucModel->GetAll();
         
-        return $this->view("User.phongtro",[
-            'Listphongtro' => $listPhongtro,
-            'ListKhuVuc'   => $khuvuc
-        ]);
+        // return $this->view("User.phongtro",[
+        //     'Listphongtro' => $listPhongtro,
+        //     'ListKhuVuc'   => $khuvuc
+        // ]);
+        $this->view("bootstrap.album-rtl.index",[
+                'Listphongtro' => $listPhongtro,
+                'ListKhuVuc'   => $khuvuc
+            ]);
         
     }
 
